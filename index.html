@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script>
+            function setRGB(){
+                let r = document.getElementByID("r").value;
+                let g = document.getElementByID("g").value;
+                let b = document.getElementByID("b").value;
+                let c = "#" + hex(r) + hex(g) + hex(b);
+                document.body.style.backgroundColor = c;
+                document.getElementById("hex").textContent = c;       
+            }
+
+            function hex(v){
+                v = parseInt(v);
+                let hex = v.toString(16);
+                if(v<16){
+                    hex = "0" + hex;
+                }
+                return hex;
+
+
+            }
+        </script>
+    </head>
+    
+    <body>
+        <h1 style = "background-color: white">RGB:<span id = "hex"></span></h1>
+        <p>
+            R:<input type = "range" min="0" max="255" id="r" onchange="setRGB()">
+            <br>
+            G:<input type = "range" min="0" max="255" id ="g" onchange="setRGB()">
+            <br>
+            B:<input type = "range" min="0" max="255" id ="b" onchangee="setRGB()">
+        </p>
+    </body>
+</html>
